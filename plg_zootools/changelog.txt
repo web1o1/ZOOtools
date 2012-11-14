@@ -1,0 +1,15 @@
+Changelog
+------------
+
+
+3.0 BETA
+ Initial Release
+
+
+* -> Security Fix
+# -> Bug Fix
+$ -> Language fix or change
++ -> Addition
+^ -> Change
+- -> Removed
+! -> Note

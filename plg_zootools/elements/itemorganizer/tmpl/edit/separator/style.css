@@ -1,0 +1,31 @@
+/* Copyright (C) JOOlanders SL http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only */
+
+.creation-form .zl-separator {
+	text-align: center;
+	background-color: #f0f0f0;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	margin: 0;
+	position: relative;
+	height: 40px;
+}
+
+.creation-form .zl-separator i:before {
+    content: "";
+}
+
+.creation-form .zl-separator h3 {
+	font-size: 18px;
+	margin: 0;
+}
+
+.creation-form .zl-separator .btn {
+	margin: 9px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.creation-form .zl-separator .btn:focus {
+    outline: none;
+}

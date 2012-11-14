@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="itemorganizer" group="ZOOlanders Extensions" norender="true">
+	<name>Item Organizer</name>
+	<author>ZOOlanders</author>
+	<creationDate>August 2011</creationDate>
+	<copyright>Copyright (C) 2011 JOOlanders, SL</copyright>
+	<authorEmail>info@zoolanders.com</authorEmail>
+	<authorUrl>http://www.zoolanders.com</authorUrl>
+	<version>3.0</version>
+	<description>Organize your Item content</description>
+	<params>
+		<param name="basic" type="hidden" />
+		<param name="layout" type="zlfield" addctrl="layout" toggle="true">
+			<loadfield type="layout">
+				<layout label="PLG_ZLFRAMEWORK_MAIN_LAYOUT" help="PLG_ZLFRAMEWORK_MAIN_LAYOUT_DESC" path="elements:itemorganizer/tmpl/edit" />
+			</loadfield>
+		</param>
+	</params>
+</element>

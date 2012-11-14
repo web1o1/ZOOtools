@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade" version="2.5.6" zlfw="3.0.3">
+	<name>ZOOtools</name>
+	<author>ZOOlanders</author>
+	<creationDate>November 2012</creationDate>
+	<copyright>Copyright (C) 2012 JOOlanders SL</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only</license>
+	<authorEmail>info@zoolanders.com</authorEmail>
+	<authorUrl>http://www.zoolanders.com</authorUrl>
+	<version>3.0 BETA</version>
+	<description>PLG_ZOOTOOLS_SYS_DESCRIPTION</description>
+	<scriptfile>install.script.php</scriptfile>
+	<files>
+		<filename plugin="zootools">zootools.php</filename>
+		<filename>install.script.php</filename>
+		<filename>changelog.txt</filename>
+		<filename>index.html</filename>
+		<folder>elements</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_zootools.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_zootools.sys.ini</language>
+    </languages>
+</extension>
