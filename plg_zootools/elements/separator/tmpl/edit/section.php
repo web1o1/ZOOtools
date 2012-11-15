@@ -10,12 +10,12 @@
 defined('_JEXEC') or die('Restricted access');
 
 // load assets
-$this->app->document->addStylesheet('elements:itemorganizer/tmpl/edit/separator/style.css');
-$this->app->document->addScript('elements:itemorganizer/tmpl/edit/separator/script.min.js');
+$this->app->document->addStylesheet('elements:separator/tmpl/edit/section/style.css');
+$this->app->document->addScript('elements:separator/tmpl/edit/section/script.min.js');
 $this->app->zlfw->loadLibrary('bootstrap');
 
 // init vars
-$title 			= $this->config->find('layout._title', '');
+$title 			= $this->config->get('name', '');
 $folding 		= $this->config->find('layout._folding', '');
 
 ?>
@@ -24,7 +24,7 @@ $folding 		= $this->config->find('layout._folding', '');
 
 	<script type="text/javascript">
 		jQuery(function($) {
-			$("#<?php echo $this->identifier; ?>").ZOOtoolsItemOrganizer({
+			$("#<?php echo $this->identifier; ?>").ZOOtoolsSeparatorSection({
 				title: '<?php echo $title; ?>',
 				folding: '<?php echo $folding ?>'
 			});

@@ -54,6 +54,13 @@ class plgSystemZooTools extends JPlugin {
 		if ( $path = $this->app->path->path( 'zootools:elements' ) ){
 			$this->app->path->register( $path, 'elements' );
 		}
+
+		// load specific ZL Field integrations
+		if($this->joomla->isAdmin() && $this->app->zlfield->getTheEnviroment()){
+			$this->app->document->addStylesheet('elements:separator/assets/zlfield.css');
+			$this->app->document->addScript('elements:separator/assets/zlfield.min.js');
+			$this->app->document->addScriptDeclaration( 'jQuery(function($) { $("body").ZOOtoolsSeparatorZLField({}) });' );
+		}
 	}
 	
 	/*

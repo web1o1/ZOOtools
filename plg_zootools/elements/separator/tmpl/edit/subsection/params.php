@@ -19,21 +19,13 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 			"type":"fieldset",
 			"fields": {
 
-				"_title":{
+				"name":{
 					"type":"text",
-					"label":"PLG_ZOOTOLS_ELEMIO_TITLE",
-					"help":"PLG_ZOOTOLS_ELEMIO_TITLE_DESC"
-				},
-				"_folding":{
-					"type":"select",
-					"label":"PLG_ZOOTOLS_ELEMIO_FOLD_FEATURE",
-					"help":"PLG_ZOOTOLS_ELEMIO_FOLD_FEATURE_DESC",
-					"specific": {
-						"options": {
-							"PLG_ZLFRAMEWORK_DISABLED":"",
-							"PLG_ZOOTOLS_ELEMIO_START_UNFOLDED":"1",
-							"PLG_ZOOTOLS_ELEMIO_START_FOLDED":"2"
-						}
+					"label":"PLG_ZOOTOLS_SEPARATOR_TITLE",
+					"help":"PLG_ZOOTOLS_SEPARATOR_TITLE_DESC",
+					"adjust_ctrl":{
+						"pattern":'.json_encode('/\[layout\]/').',
+						"replacement":""
 					}
 				}
 

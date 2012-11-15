@@ -7,10 +7,10 @@
 */
 
 /*
-	Class: ElementItemOrganizer
-		The ItemOrganizer element class
+	Class: ElementSeparator
+		The Separator element class
 */
-class ElementItemOrganizer extends ElementPro implements iSubmittable {
+class ElementSeparator extends ElementPro implements iSubmittable {
 
 	/*
 		Function: render
