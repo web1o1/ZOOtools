@@ -16,6 +16,16 @@ class plgSystemZootoolsInstallerScript
 	protected $_ext_name = 'ZOOtools';
 	protected $_lng_prefix = 'PLG_ZOOTOOLS_SYS';
 
+	/* List of obsolete files and folders */
+	protected $_obsolete = array(
+		'files'	=> array(
+
+		),
+		'folders' => array(
+			'plugins/system/zlframework/zlframework/elements/staticcontent'
+		)
+	);
+
 	/**
 	 * Called before any type of action
 	 *
@@ -78,6 +88,30 @@ class plgSystemZootoolsInstallerScript
 
 		if($type == 'update'){
 			echo JText::sprintf('PLG_ZLFRAMEWORK_SYS_UPDATE', $this->_ext_name, $release);
+		}
+
+		// remove obsolete
+		$this->removeObsolete();
+	}
+
+	/**
+	 * Removes obsolete files and folders
+	 * @version 1.1
+	 */
+	private function removeObsolete()
+	{
+		// Remove files
+		if(!empty($this->_obsolete['files'])) foreach($this->_obsolete['files'] as $file) {
+			$f = JPATH_ROOT.'/'.$file;
+			if(!JFile::exists($f)) continue;
+			JFile::delete($f);
+		}
+
+		// Remove folders
+		if(!empty($this->_obsolete['folders'])) foreach($this->_obsolete['folders'] as $folder) {
+			$f = JPATH_ROOT.'/'.$folder;
+			if(!JFolder::exists($f)) continue;
+			JFolder::delete($f);
 		}
 	}
 
