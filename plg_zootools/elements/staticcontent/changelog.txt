@@ -1,10 +1,11 @@
 Changelog
 ------------
 
-
 3.0
- Initial Release
+ ^ Moved to ZOOtools Extension
 
+2.5
+ ! Initial Release
 
 * -> Security Fix
 # -> Bug Fix
