@@ -7,7 +7,7 @@
 	<authorEmail>info@zoolanders.com</authorEmail>
 	<authorUrl>http://www.zoolanders.com</authorUrl>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only</license>
-	<version>2.5</version>
+	<version>3.0</version>
 	<description>Static Content defined on each position</description>
 	<params>
 		<param name="basic" type="zlfield">
