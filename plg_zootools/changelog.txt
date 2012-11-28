@@ -1,6 +1,8 @@
 Changelog
 ------------
 
+3.0.1
+ ^ Separator ZL Field integrations assets are loaded by the element now
 
 3.0
  Initial Release

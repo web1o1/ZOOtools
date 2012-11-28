@@ -12,6 +12,23 @@
 */
 class ElementSeparator extends ElementPro implements iSubmittable {
 
+			/*
+	   Function: Constructor
+	*/
+	public function __construct() {
+
+		// call parent constructor
+		parent::__construct();
+
+		// load ZL Field integration
+		if (JFactory::getApplication()->isAdmin()) {
+			$this->app->document->addStylesheet('elements:separator/assets/zlfield.css');
+			$this->app->document->addScript('elements:separator/assets/zlfield.min.js');
+			$this->app->document->addScriptDeclaration( 'jQuery(function($) { $("body").ZOOtoolsSeparatorZLField({}) });' );
+		}
+	}
+
+
 	/*
 		Function: render
 			Override. Renders the element.
