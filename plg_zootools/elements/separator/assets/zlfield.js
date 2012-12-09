@@ -66,21 +66,25 @@
 				$('.element-list[data-position=unassigned]').sortable({ cancel: ".element.zl-separator" });
 			})
 		},
-		initOranizerTitle: function($element) {
-			var $this = this,
-				select = $this.element.find('.zlfield .row[data-id=_layout] select'),
-				name = $this.element.find('.name');
+		initOranizerTitle: function() {
+			if (!this.element.data('zootools-actions-inited')) // only once
+			{
+				var $this = this,
+					select = $this.element.find('.zlfield .row[data-id=_layout] select'),
+					name = $this.element.find('.name');
 
-			select.on('loaded.zlfield', function(){
-					
+				select.on('loaded.zlfield', function(){
+						
 					var title_input = $this.element.find('.zlfield .row[data-id=name] input');
 
 					// change the title and listen to new inputs
 					title_input.on('keyup zlinit', function(){
 						name.html(title_input.val());
 					}).trigger('zlinit');
-		
-			}).trigger('loaded.zlfield');
+			
+				}).trigger('loaded.zlfield');
+
+			this.element.data('zootools-actions-inited', !0)}
 		}
 	});
 	// don't touch

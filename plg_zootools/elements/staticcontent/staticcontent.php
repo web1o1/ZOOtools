@@ -10,7 +10,7 @@
 	Class: ElementStaticContent
 		The Static Content element class
 */
-class ElementStaticContent extends ElementPro {
+class ElementStaticContent extends ElementPro implements iSubmittable {
 
 	protected $_rendered_values = array();
 
@@ -122,5 +122,33 @@ class ElementStaticContent extends ElementPro {
 	public function edit() {
 		return null;
 	}
+
+	/*
+		Function: renderSubmission
+			Renders the element in submission.
+
+	   Parameters:
+			$params - submission parameters
+
+		Returns:
+			String - html
+	*/
+	public function renderSubmission($params = array())
+	{	
+		return $this->render($params);
+	}
+
+	/*
+		Function: validateSubmission
+			Validates the submitted element
+
+	   Parameters:
+			$value  - AppData value
+			$params - AppData submission parameters
+
+		Returns:
+			Array - cleaned value
+	*/
+	public function validateSubmission($value, $params) {}
 
 }

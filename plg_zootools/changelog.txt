@@ -1,6 +1,10 @@
 Changelog
 ------------
 
+3.0.2
+ + Static Content Submission partial compatibility
+ # Fixed Separator JS loop
+
 3.0.1
  ^ Separator ZL Field integrations assets are loaded by the element now
 

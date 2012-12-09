@@ -1,6 +1,9 @@
 Changelog
 ------------
 
+3.0.1
+ # Fixed JS loop
+
 3.0
  ! Initial Release
 

@@ -1,6 +1,9 @@
 Changelog
 ------------
 
+3.0.1
+ # Submission partial compatibility
+
 3.0
  ^ Moved to ZOOtools Extension
 
