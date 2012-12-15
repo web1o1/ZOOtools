@@ -1,6 +1,9 @@
 Changelog
 ------------
 
+3.0.3
+ # Separator ZLField integration Optimized
+
 3.0.2
  + Static Content Submission partial compatibility
  # Fixed Separator JS loop

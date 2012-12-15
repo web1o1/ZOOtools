@@ -9,27 +9,31 @@
 	var Plugin = function(){};
 	Plugin.prototype = $.extend(Plugin.prototype, {
 		name: 'ZOOtoolsSeparatorZLField',
-		options: {},
+		options: {
+			enviroment: ''
+		},
 		initialize: function(body, options) {
 			this.options = $.extend({}, this.options, options);
-			var $this = this;
+			var $this = this,
+				env = $this.options.enviroment;
 
-			$(document).ready(function() {
-
+			$(document).ready(function()
+			{
 				// Edit view
+				(env == 'zoo-type-edit') && 
 				$('.ui-sortable').on('sortstop', function(event, ui)
 				{
-					$this.element = ui.item,
-					$this.element_position = $this.element.closest('ul.element-list').data('position'),
-					$this.element_type = $this.element.find('.zlinfo').data('element-type');
+					$element = ui.item,
+					$element_position = $element.closest('ul.element-list').data('position'),
+					$element_type = $element.find('.zlinfo').data('element-type');
 	
-					if ($this.element_type == 'separator'){
+					if ($element_type == 'separator'){
 
 						// add class
-						$this.element.addClass('zl-separator');
+						$element.addClass('zl-separator');
 
 						// launch the Element Title feature
-						$this.initOranizerTitle();
+						$this.initOranizerTitle($element);
 					}
 				})
 				// first time must be triggered manually
@@ -37,45 +41,50 @@
 					$(this).parent().trigger('sortstop', { item: $(this) });
 				});
 
-				// apply actions when new element on type
+				// apply actions when new element added
+				(env == 'zoo-type-edit') && 
 				$('.col-left ul.element-list').on('element.added', function(event, element){ 
 					$(element).parent().trigger('sortstop', { item: $(element) });
 				});
 
 				// Assignment view
+				(env == 'zoo-type-assignment' || env == 'zoo-type-assignment-submission') && 
 				$('.element-list.unassigned li.element, .element-list[data-position=unassigned] li.element')
 				.each(function()
 				{
-					$this.element = $(this),
-					$this.element_type = $this.element.find('.zlinfo').data('element-type');
+					$element = $(this),
+					$element_type = $element.find('.zlinfo').data('element-type');
 
-					if ($this.element_type == 'separator'){
+					if ($element_type == 'separator'){
 
 						// add class
-						$this.element.addClass('zl-separator');
+						$element.addClass('zl-separator');
 
 						// remove draggable feature, if not in submission view
-						$('.element-list.unassigned')[0] && $this.element.draggable('destroy');
-
+						(env != 'zoo-type-assignment-submission') &&
+						$('.element-list.unassigned')[0] && $element.draggable('disable').removeClass('ui-state-disabled');
+				
 						// remove unnecesary name data
-						$this.element.find('.name span').remove();
+						$element.find('.name span').remove();
 					}
 				})
 
-				// Submission view, cancel sorting
-				$('.element-list[data-position=unassigned]').sortable({ cancel: ".element.zl-separator" });
+				// On Submission view, cancel sorting
+				if (env == 'zoo-type-assignment-submission') {
+					$('.element-list[data-position=unassigned]').sortable({ cancel: ".element.zl-separator" });
+				}
 			})
 		},
-		initOranizerTitle: function() {
-			if (!this.element.data('zootools-actions-inited')) // only once
+		initOranizerTitle: function($element) {
+			if (!$element.data('zootools-actions-inited')) // only once
 			{
 				var $this = this,
-					select = $this.element.find('.zlfield .row[data-id=_layout] select'),
-					name = $this.element.find('.name');
+					select = $element.find('.zlfield .row[data-id=_layout] select'),
+					name = $element.find('.name');
 
 				select.on('loaded.zlfield', function(){
 						
-					var title_input = $this.element.find('.zlfield .row[data-id=name] input');
+					var title_input = $element.find('.zlfield .row[data-id=name] input');
 
 					// change the title and listen to new inputs
 					title_input.on('keyup zlinit', function(){
@@ -84,7 +93,7 @@
 			
 				}).trigger('loaded.zlfield');
 
-			this.element.data('zootools-actions-inited', !0)}
+			$element.data('zootools-actions-inited', !0)}
 		}
 	});
 	// don't touch

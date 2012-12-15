@@ -21,10 +21,10 @@ class ElementSeparator extends ElementPro implements iSubmittable {
 		parent::__construct();
 
 		// load ZL Field integration
-		if (JFactory::getApplication()->isAdmin()) {
+		if ($this->app->zlfw->isTheEnviroment('zoo-type')) {
 			$this->app->document->addStylesheet('elements:separator/assets/zlfield.css');
 			$this->app->document->addScript('elements:separator/assets/zlfield.min.js');
-			$this->app->document->addScriptDeclaration( 'jQuery(function($) { $("body").ZOOtoolsSeparatorZLField({}) });' );
+			$this->app->document->addScriptDeclaration( 'jQuery(function($) { $("body").ZOOtoolsSeparatorZLField({ enviroment: "'.$this->app->zlfw->getTheEnviroment().'" }) });' );
 		}
 	}
 

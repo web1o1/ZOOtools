@@ -1,6 +1,9 @@
 Changelog
 ------------
 
+3.0.2
+ # ZLField integration Optimized
+
 3.0.1
  # Fixed JS loop
 
