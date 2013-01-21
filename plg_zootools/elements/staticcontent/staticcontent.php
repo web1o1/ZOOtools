@@ -1,6 +1,6 @@
 <?php
 /*
-* @package		ZL Framework
+* @package		ZOOtools
 * @author    	JOOlanders, SL http://www.zoolanders.com
 * @copyright 	Copyright (C) JOOlanders, SL
 * @license   	http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
