@@ -6,7 +6,7 @@
 	<copyright>Copyright (C) 2011 JOOlanders, SL</copyright>
 	<authorEmail>info@zoolanders.com</authorEmail>
 	<authorUrl>http://www.zoolanders.com</authorUrl>
-	<version>3.0.2</version>
+	<version>3.0.3</version>
 	<description>Organize your Elements</description>
 	<params>
 		<param name="basic" type="hidden" />

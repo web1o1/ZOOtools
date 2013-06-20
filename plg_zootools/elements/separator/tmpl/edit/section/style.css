@@ -10,8 +10,10 @@
 	height: 40px;
 }
 
-.creation-form .zl-separator-section i:before {
-    content: "";
+.creation-form .zl-separator-section i.icon-eye-close,
+.creation-form .zl-separator-section i.icon-eye-open {
+	font-size: 20px;
+    margin-right: 0;
 }
 
 .creation-form .zl-separator-section h3 {
@@ -20,7 +22,7 @@
 }
 
 .creation-form .zl-separator-section .btn {
-	margin: 9px;
+	margin: 6px 9px;
     position: absolute;
     right: 0;
     top: 0;

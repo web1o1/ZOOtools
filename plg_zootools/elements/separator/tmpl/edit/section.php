@@ -12,7 +12,7 @@ defined('_JEXEC') or die('Restricted access');
 // load assets
 $this->app->document->addStylesheet('elements:separator/tmpl/edit/section/style.css');
 $this->app->document->addScript('elements:separator/tmpl/edit/section/script.min.js');
-$this->app->zlfw->loadLibrary('bootstrap');
+$this->app->zlfw->zlux->loadBootstrap();
 
 // init vars
 $title 			= $this->config->get('name', '');
