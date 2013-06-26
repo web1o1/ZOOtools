@@ -19,7 +19,7 @@
 
 			// save separator content in cache
 			var separator = $('<div class="zl-separator-section zl-bootstrap" />')
-				title = $('<h3>'+$this.options.title+'</h3>'),
+				title = $('<span class="zlux-x-title">'+$this.options.title+'</span>'),
 				
 
 			// set title
