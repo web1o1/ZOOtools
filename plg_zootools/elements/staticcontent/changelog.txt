@@ -1,6 +1,9 @@
 Changelog
 ------------
 
+3.1
+ ^ ZLFW 3.1 compatibility
+
 3.0.1
  # Submission partial compatibility
 
