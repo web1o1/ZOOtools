@@ -19,7 +19,7 @@
 
 			// save separator content in cache
 			var separator = $('<div class="zl-separator-section zl-bootstrap" />')
-				title = $('<h3>'+$this.options.title+'</h3>'),
+				title = $('<span class="zlux-x-title">'+$this.options.title+'</span>'),
 				
 
 			// set title
@@ -32,7 +32,7 @@
 			$(document).ready(function()
 			{
 				var	nextSeparator = separator.nextAll('.zl-separator-section').first(),
-					childs = separator.nextUntil(nextSeparator);
+					childs = separator.nextUntil(nextSeparator, '.element'); // match only elements
 
 				// if start folded on
 				($this.options.folding == 2) && childs.hide();

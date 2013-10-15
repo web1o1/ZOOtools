@@ -57,6 +57,13 @@ class plgSystemZooTools extends JPlugin {
 
 		// register events
 		$this->app->event->dispatcher->connect('type:coreconfig', array($this, 'coreConfig'));
+
+		// load Separator ZL Field integration
+		if ($this->app->zlfw->isTheEnviroment('zoo-type')) {
+			$this->app->document->addStylesheet('elements:separator/assets/zlfield.css');
+			$this->app->document->addScript('elements:separator/assets/zlfield.min.js');
+			$this->app->document->addScriptDeclaration( 'jQuery(function($) { $("body").ZOOtoolsSeparatorZLField({ enviroment: "'.$this->app->zlfw->getTheEnviroment().'" }) });' );
+		}
 	}
 
 	/**
@@ -64,7 +71,7 @@ class plgSystemZooTools extends JPlugin {
 	 */
 	public function coreConfig( $event, $arguments = array() ){
 		$config = $event->getReturnValue();
-		// $config['_staticcontent'] = array('name' => 'Static Content', 'type' => 'staticcontent');
+		$config['_staticcontent'] = array('name' => 'Static Content', 'type' => 'staticcontent');
 		$event->setReturnValue($config);
 	}
 	

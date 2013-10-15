@@ -1,6 +1,12 @@
 Changelog
 ------------
 
+3.1
+ ^ ZLFW 3.1 compatibility
+
+3.0.3
+ ^ BS Styles loaded from ZLUX
+
 3.0.2
  # ZLField integration Optimized
 

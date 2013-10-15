@@ -15,9 +15,12 @@ jimport('joomla.filesystem.folder');
 class plgSystemZootoolsInstallerScript
 {
 	protected $_error;
+	protected $_src;
+	protected $_target;
 	protected $_ext = 'zootools';
 	protected $_ext_name = 'ZOOtools';
-	protected $_lng_prefix = 'PLG_ZOOTOOLS_SYS';
+	protected $_ext_version = '';
+	protected $_lng_prefix = 'PLG_ZOOTOOLS_SYS';	
 
 	/* List of obsolete files and folders */
 	protected $_obsolete = array(
@@ -41,9 +44,20 @@ class plgSystemZootoolsInstallerScript
 	{
 		// init vars
 		$db = JFactory::getDBO();
+		$type = strtolower($type);
+		$this->_src = $parent->getParent()->getPath('source'); // tmp folder
+		$this->_target = JPATH_ROOT.'/plugins/system/zlframework'; // install folder
+		$this->_ext_version = $parent->get( "manifest" )->version;
 
 		// load ZLFW sys language file
 		JFactory::getLanguage()->load('plg_system_zlframework.sys', JPATH_ADMINISTRATOR, 'en-GB', true);
+
+
+		// check dependencies
+		if($type != 'uninstall' && !$this->checkRequirements($parent)){
+			Jerror::raiseWarning(null, $this->_error);
+			return false;
+		}
 	}
 
 	/**
@@ -83,6 +97,7 @@ class plgSystemZootoolsInstallerScript
 	public function postflight($type, $parent)
 	{
 		// init vars
+		$type = strtolower($type);
 		$release = $parent->get( "manifest" )->version;
 
 		if($type == 'install'){
@@ -116,6 +131,29 @@ class plgSystemZootoolsInstallerScript
 			if(!JFolder::exists($f)) continue;
 			JFolder::delete($f);
 		}
+	}
+
+	/**
+	 * check requirements
+	 *
+	 * @return  boolean  True on success
+	 */
+	protected function checkRequirements($parent)
+	{
+		/*
+		 * make sure ZLFW is up to date
+		 */
+		if($min_zlfw_release = $parent->get( "manifest" )->attributes()->zlfw)
+		{
+			$zlfw_manifest = simplexml_load_file(JPATH_ROOT.'/plugins/system/zlframework/zlframework.xml');
+
+			if( version_compare((string)$zlfw_manifest->version, (string)$min_zlfw_release, '<') ) {
+				$this->_error = "<a href=\"https://www.zoolanders.com/extensions/zl-framework\" target=\"_blank\">ZL Framework</a> v{$min_zlfw_release} or higher required, please update it and retry the installation.";
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/**

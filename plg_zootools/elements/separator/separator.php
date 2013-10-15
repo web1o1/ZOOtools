@@ -15,23 +15,6 @@ defined('_JEXEC') or die('Restricted access');
 */
 class ElementSeparator extends ElementPro implements iSubmittable {
 
-			/*
-	   Function: Constructor
-	*/
-	public function __construct() {
-
-		// call parent constructor
-		parent::__construct();
-
-		// load ZL Field integration
-		if ($this->app->zlfw->isTheEnviroment('zoo-type')) {
-			$this->app->document->addStylesheet('elements:separator/assets/zlfield.css');
-			$this->app->document->addScript('elements:separator/assets/zlfield.min.js');
-			$this->app->document->addScriptDeclaration( 'jQuery(function($) { $("body").ZOOtoolsSeparatorZLField({ enviroment: "'.$this->app->zlfw->getTheEnviroment().'" }) });' );
-		}
-	}
-
-
 	/*
 		Function: render
 			Override. Renders the element.
