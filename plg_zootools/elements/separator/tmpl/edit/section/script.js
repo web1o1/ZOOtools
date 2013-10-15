@@ -32,7 +32,7 @@
 			$(document).ready(function()
 			{
 				var	nextSeparator = separator.nextAll('.zl-separator-section').first(),
-					childs = separator.nextUntil(nextSeparator);
+					childs = separator.nextUntil(nextSeparator, '.element'); // match only elements
 
 				// if start folded on
 				($this.options.folding == 2) && childs.hide();
