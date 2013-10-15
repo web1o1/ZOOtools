@@ -1,6 +1,10 @@
 Changelog
 ------------
 
+3.1
+ ^ ZLFW 3.1 compatibility
+ # Fixed minor issues with Separator element
+
 3.0.3
  # Separator ZLField integration Optimized
 
